@@ -1,0 +1,12 @@
+{
+  "name": "botflow-ai",
+  "version": "1.0.0",
+  "description": "Bridge for Render to run Python on Node instance",
+  "scripts": {
+    "build": "pip install -r requirements.txt",
+    "start": "python bot.py"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}

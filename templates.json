@@ -1,0 +1,407 @@
+{
+  "restoran": {
+    "name": "🍽 Restoran Pro",
+    "description": "Buyurtma, menyu, yetkazib berish — hamma narsa tayyor",
+    "preview_count": 16,
+    "config": {
+      "start": {
+        "type": "menu",
+        "text": "🍽 <b>Restoranmizga xush kelibsiz!</b>\n\nBizda eng mazali taomlar, qulay muhit va tezkor yetkazib berish xizmati mavjud.\n\n⭐ 4.9 reyting | 50,000+ mamnun mijoz\n\n👇 Quyidagidan tanlang:",
+        "buttons": ["🍕 Menyu", "🛵 Yetkazib berish", "📝 Buyurtma", "📞 Aloqa"],
+        "inline_buttons": {"⭐ Biz haqimizda": "about", "📍 Manzil": "location"}
+      },
+      "🍕 menyu": {
+        "type": "menu",
+        "text": "🍽 <b>Bizning Menyu</b>\n\nO'zingizga yoqqan kategoriyani tanlang:",
+        "buttons": ["🥗 Salatlar", "🍖 Asosiy taomlar", "🍰 Desertlar", "🥤 Ichimliklar", "🍕 Pitsa", "⬅️ Orqaga"]
+      },
+      "🥗 salatlar": {
+        "type": "menu",
+        "text": "🥗 <b>Salatlar</b>\n\n1. 🥬 Sezar salat — <b>35,000 so'm</b>\n   Tovuq, parmezan, kruton, sezar sous\n\n2. 🥒 Grek salat — <b>30,000 so'm</b>\n   Pomidor, bodring, feta, zaytun\n\n3. 🥕 Vitamin salat — <b>25,000 so'm</b>\n   Sabzavotlar aralashmasi",
+        "inline_buttons": {"🛒 Buyurtma berish": "📝 buyurtma"},
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "🍖 asosiy taomlar": {
+        "type": "menu",
+        "text": "🍖 <b>Asosiy Taomlar</b>\n\n1. 🥩 Tenderli steak — <b>85,000 so'm</b>\n   Premium mol go'shti, grill\n\n2. 🍗 Tovuq filesi — <b>55,000 so'm</b>\n   Griilda tayyorlangan, sous bilan\n\n3. 🐟 Baliq file — <b>65,000 so'm</b>\n   Oq baliq, limon sousi bilan\n\n4. 🍖 Qo'ziqorin bilan go'sht — <b>75,000 so'm</b>",
+        "inline_buttons": {"🛒 Buyurtma berish": "📝 buyurtma"},
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "🍰 desertlar": {
+        "type": "menu",
+        "text": "🍰 <b>Desertlar</b>\n\n1. 🎂 Tiramisu — <b>30,000 so'm</b>\n2. 🍮 Krem-bryule — <b>25,000 so'm</b>\n3. 🍫 Shokoladli fondan — <b>35,000 so'm</b>\n4. 🍨 Muzqaymoq (3 ta) — <b>20,000 so'm</b>",
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "🥤 ichimliklar": {
+        "type": "menu",
+        "text": "🥤 <b>Ichimliklar</b>\n\n☕ Amerikano — 15,000\n☕ Kapuchino — 20,000\n🍵 Choy — 10,000\n🥤 Limonad — 18,000\n🍹 Mojito (bezalkogol) — 25,000",
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "🍕 pitsa": {
+        "type": "menu",
+        "text": "🍕 <b>Pitsa</b>\n\n1. Margarita — <b>45,000 so'm</b>\n2. Pepperoni — <b>55,000 so'm</b>\n3. 4 pishloq — <b>60,000 so'm</b>\n4. Tovuqli BBQ — <b>55,000 so'm</b>\n\n📏 Hajmi: 30 sm",
+        "inline_buttons": {"🛒 Buyurtma": "📝 buyurtma"},
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "📝 buyurtma": {
+        "type": "form",
+        "text": "📝 <b>Buyurtma berish</b>\n\nQuyidagi ma'lumotlarni kiriting:",
+        "questions": ["Ismingizni yozing:", "Telefon raqamingiz (+998...):", "Qaysi taom(lar)ni buyurtma qilasiz?", "Yetkazib berish manzilingiz:", "To'lov turi: Naqd yoki Karta?", "Izoh yoki qo'shimcha istaklar:"],
+        "on_finish": "✅ <b>Buyurtmangiz qabul qilindi!</b>\n\n🕐 Taxminiy yetkazish: 40-60 daqiqa\nOperator tez orada bog'lanadi.\n\nRahmat! 🙏",
+        "redirect": "start"
+      },
+      "🛵 yetkazib berish": {
+        "type": "menu",
+        "text": "🛵 <b>Yetkazib berish xizmati</b>\n\n🕐 Yetkazish vaqti: 40-60 daqiqa\n💰 Yetkazish narxi: 10,000 so'm\n🆓 50,000+ buyurtmalarda BEPUL yetkazish!\n\n📍 Yetkazish hududi: Toshkent shahar",
+        "inline_buttons": {"📝 Buyurtma berish": "📝 buyurtma"},
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "📞 aloqa": {
+        "type": "menu",
+        "text": "📞 <b>Biz bilan bog'laning</b>\n\n📱 Telefon: +998 90 123 45 67\n📧 Email: info@restaurant.uz\n⏰ Ish vaqti: 10:00 — 23:00\n\n💬 Izoh va takliflar uchun pastdagi formani to'ldiring:",
+        "inline_buttons": {"✉️ Xabar qoldirish": "feedback"},
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "feedback": {
+        "type": "form",
+        "questions": ["Ismingiz:", "Izoh yoki taklifingiz:"],
+        "on_finish": "Rahmat! Fikringiz biz uchun juda muhim. 🙏",
+        "redirect": "start"
+      },
+      "about": {
+        "type": "menu",
+        "text": "⭐ <b>Biz haqimizda</b>\n\n🏆 2015-yildan beri xizmatda\n👨‍🍳 15+ professional oshpaz\n⭐ 4.9 reyting (Google)\n🍽 50,000+ xizmat ko'rsatilgan mijoz\n\nBizning maqsad — sifatli taom va unutilmas tajriba!",
+        "inline_buttons": {"⬅️ Orqaga": "start"}
+      },
+      "location": {
+        "type": "menu",
+        "text": "📍 <b>Bizning manzil</b>\n\n🏢 Toshkent shahar, Amir Temur ko'chasi, 15-uy\n🚇 Metroga yaqin: Amir Temur Xiyoboni\n🅿️ Bepul parkovka mavjud\n\n⏰ Har kuni: 10:00 — 23:00",
+        "inline_buttons": {"🗺 Xaritada ko'rish": "https://maps.google.com", "⬅️ Orqaga": "start"}
+      },
+      "⬅️ orqaga": {"redirect": "start"}
+    }
+  },
+  "dokon": {
+    "name": "🛒 Onlayn Do'kon",
+    "description": "Mahsulotlar, narxlar, buyurtma — to'liq e-commerce",
+    "preview_count": 18,
+    "config": {
+      "start": {
+        "type": "menu",
+        "text": "🛍 <b>Do'konimizga xush kelibsiz!</b>\n\nEng sifatli mahsulotlar, hamyonbop narxlar va tezkor yetkazib berish.\n\n🎁 Yangi mijozlarga 10% chegirma!\n\n👇 Kategoriyani tanlang:",
+        "buttons": ["👗 Kiyimlar", "👟 Poyabzallar", "📱 Aksessuarlar", "💰 Aksiya", "📝 Buyurtma", "📞 Aloqa"],
+        "inline_buttons": {"🆕 Yangiliklar": "news", "ℹ️ Biz haqimizda": "about"}
+      },
+      "👗 kiyimlar": {
+        "type": "menu",
+        "text": "👗 <b>Kiyimlar</b>\n\nTur tanlang:",
+        "buttons": ["👔 Erkaklar uchun", "👗 Ayollar uchun", "👶 Bolalar uchun", "⬅️ Orqaga"]
+      },
+      "👔 erkaklar uchun": {
+        "type": "menu",
+        "text": "👔 <b>Erkaklar kiyimlari</b>\n\n1. Ko'ylak (klassik) — <b>150,000 so'm</b>\n2. Shim — <b>200,000 so'm</b>\n3. Kostyum — <b>500,000 so'm</b>\n4. Futbolka — <b>80,000 so'm</b>\n5. Kurtka — <b>350,000 so'm</b>\n\n📏 O'lchamlar: S, M, L, XL, XXL",
+        "inline_buttons": {"🛒 Buyurtma": "📝 buyurtma"},
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "👗 ayollar uchun": {
+        "type": "menu",
+        "text": "👗 <b>Ayollar kiyimlari</b>\n\n1. Ko'ylak — <b>180,000 so'm</b>\n2. Yubka — <b>120,000 so'm</b>\n3. Bluzka — <b>100,000 so'm</b>\n4. Palto — <b>400,000 so'm</b>\n\n📏 O'lchamlar: XS, S, M, L, XL",
+        "inline_buttons": {"🛒 Buyurtma": "📝 buyurtma"},
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "👶 bolalar uchun": {
+        "type": "menu",
+        "text": "👶 <b>Bolalar kiyimlari</b>\n\n1. Futbolka (2-12 yosh) — <b>50,000 so'm</b>\n2. Shim — <b>70,000 so'm</b>\n3. Kurtkalar — <b>150,000 so'm</b>",
+        "inline_buttons": {"🛒 Buyurtma": "📝 buyurtma"},
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "👟 poyabzallar": {
+        "type": "menu",
+        "text": "👟 <b>Poyabzallar</b>\n\n1. 👞 Klassik tufli — <b>250,000 so'm</b>\n2. 👟 Krossovka — <b>300,000 so'm</b>\n3. 🩴 Shippak — <b>50,000 so'm</b>\n4. 👢 Etik (qishki) — <b>400,000 so'm</b>",
+        "inline_buttons": {"🛒 Buyurtma": "📝 buyurtma"},
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "📱 aksessuarlar": {
+        "type": "menu",
+        "text": "📱 <b>Aksessuarlar</b>\n\n1. ⌚ Soat — <b>200,000 so'm</b>\n2. 👜 Sumka — <b>250,000 so'm</b>\n3. 🧢 Kepka — <b>40,000 so'm</b>\n4. 🕶 Ko'zoynak — <b>80,000 so'm</b>",
+        "inline_buttons": {"🛒 Buyurtma": "📝 buyurtma"},
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "💰 aksiya": {
+        "type": "menu",
+        "text": "💰 <b>Joriy aksiyalar</b>\n\n🔥 <b>MEGA SALE!</b>\n\n1. Barcha kiyimlarga <b>-20%</b>\n2. 2 ta mahsulot olsangiz 3-chi <b>BEPUL</b>\n3. 500,000+ xaridda yetkazish <b>BEPUL</b>\n\n⏰ Aksiya: 30-aprelgacha!",
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "📝 buyurtma": {
+        "type": "form",
+        "text": "🛒 <b>Buyurtma berish</b>\n\nQuyidagilarni to'ldiring:",
+        "questions": ["Ismingiz:", "Telefon raqamingiz:", "Qaysi mahsulot(lar)ni xohlaysiz?", "O'lcham (S/M/L/XL):", "Yetkazish manzili:", "To'lov: Naqd / Karta / Click?"],
+        "on_finish": "✅ <b>Buyurtma qabul qilindi!</b>\n\nOperator 30 daqiqa ichida bog'lanadi.\nRahmat! 🙏",
+        "redirect": "start"
+      },
+      "📞 aloqa": {
+        "type": "menu",
+        "text": "📞 <b>Aloqa</b>\n\n📱 +998 90 111 22 33\n💬 Telegram: @shopmanager\n📧 info@shop.uz\n⏰ Har kuni: 09:00 — 21:00",
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "news": {
+        "type": "menu",
+        "text": "🆕 <b>Yangiliklar</b>\n\n📦 Yangi kolleksiya keldi!\n🎁 Bayram chegirmalari boshlandi\n🛍 VIP mijozlar uchun maxsus takliflar\n\nKanalimizga obuna bo'ling!",
+        "inline_buttons": {"⬅️ Orqaga": "start"}
+      },
+      "about": {
+        "type": "menu",
+        "text": "ℹ️ <b>Biz haqimizda</b>\n\n🏪 2018-yildan beri onlayn savdo\n📦 10,000+ yetkazilgan buyurtma\n⭐ 4.8 reyting\n🔄 14 kun ichida qaytarish mumkin",
+        "inline_buttons": {"⬅️ Orqaga": "start"}
+      },
+      "⬅️ orqaga": {"redirect": "start"}
+    }
+  },
+  "talim": {
+    "name": "📚 O'quv Markaz",
+    "description": "Kurslar, ro'yxatdan o'tish, narxlar — ta'lim platformasi",
+    "preview_count": 17,
+    "config": {
+      "start": {
+        "type": "menu",
+        "text": "📚 <b>Academy Pro</b>ga xush kelibsiz!\n\n🎓 Professional o'qituvchilar, zamonaviy darslar va kafolatlangan natija.\n\n🏆 1000+ bitiruvchi | 95% ish bilan ta'minlash\n\n👇 Bo'limni tanlang:",
+        "buttons": ["📖 Kurslar", "👨‍🏫 O'qituvchilar", "💰 Narxlar", "📅 Jadval", "📝 Ro'yxatdan o'tish", "📞 Aloqa"],
+        "inline_buttons": {"🌐 Saytimiz": "https://academy.uz"}
+      },
+      "📖 kurslar": {
+        "type": "menu",
+        "text": "📖 <b>Mavjud Kurslar</b>\n\nYo'nalishni tanlang:",
+        "buttons": ["💻 Dasturlash", "🎨 Dizayn", "📊 Marketing", "🇬🇧 Ingliz tili", "📐 Matematika", "⬅️ Orqaga"]
+      },
+      "💻 dasturlash": {
+        "type": "menu",
+        "text": "💻 <b>Dasturlash kurslari</b>\n\n1. <b>Python Full Stack</b> — 3 oy\n   💰 1,500,000 so'm/oy\n   📅 Dush-Chor-Jum, 18:00\n\n2. <b>JavaScript/React</b> — 4 oy\n   💰 2,000,000 so'm/oy\n\n3. <b>Mobile (Flutter)</b> — 3 oy\n   💰 1,800,000 so'm/oy\n\n4. <b>Python AI/ML</b> — 5 oy\n   💰 2,500,000 so'm/oy",
+        "inline_buttons": {"📝 Kursga yozilish": "register"},
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "🎨 dizayn": {
+        "type": "menu",
+        "text": "🎨 <b>Dizayn kurslari</b>\n\n1. <b>UI/UX Dizayn</b> — 3 oy\n   💰 1,200,000 so'm/oy\n\n2. <b>Grafik Dizayn</b> — 2 oy\n   💰 900,000 so'm/oy\n\n3. <b>3D Modeling</b> — 4 oy\n   💰 1,500,000 so'm/oy",
+        "inline_buttons": {"📝 Kursga yozilish": "register"},
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "📊 marketing": {
+        "type": "menu",
+        "text": "📊 <b>Marketing kurslari</b>\n\n1. <b>SMM Professional</b> — 2 oy\n   💰 800,000 so'm/oy\n\n2. <b>Target reklama</b> — 1.5 oy\n   💰 600,000 so'm/oy\n\n3. <b>SEO va Content</b> — 2 oy\n   💰 700,000 so'm/oy",
+        "inline_buttons": {"📝 Kursga yozilish": "register"},
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "🇬🇧 ingliz tili": {
+        "type": "menu",
+        "text": "🇬🇧 <b>Ingliz tili</b>\n\n📊 Darajalar:\n• Beginner — 500,000/oy\n• Elementary — 550,000/oy\n• Intermediate — 600,000/oy\n• Upper-Int — 700,000/oy\n• IELTS Prep — 1,000,000/oy\n\n👨‍🏫 Native speaker bilan darslar!",
+        "inline_buttons": {"📝 Yozilish": "register"},
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "👨‍🏫 o'qituvchilar": {
+        "type": "menu",
+        "text": "👨‍🏫 <b>Bizning jamoamiz</b>\n\n1. <b>Alisher Karimov</b> — Python, 8 yil tajriba\n2. <b>Madina Rahimova</b> — UI/UX, Google sertifikat\n3. <b>James Wilson</b> — English, Native speaker\n4. <b>Bobur Toshmatov</b> — SMM, 50+ loyiha",
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "💰 narxlar": {
+        "type": "menu",
+        "text": "💰 <b>Narxlar</b>\n\n💻 Dasturlash: 1,500,000 - 2,500,000/oy\n🎨 Dizayn: 900,000 - 1,500,000/oy\n📊 Marketing: 600,000 - 800,000/oy\n🇬🇧 Ingliz tili: 500,000 - 1,000,000/oy\n\n🎁 <b>Chegirmalar:</b>\n• To'liq to'lov: -10%\n• 3+ kishi guruh: -15%\n• Talabalar: -20%",
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "📅 jadval": {
+        "type": "menu",
+        "text": "📅 <b>Dars jadvali</b>\n\n🔵 Dushanba-Chorshanba-Juma:\n   09:00 | 14:00 | 18:00\n\n🟢 Seshanba-Payshanba-Shanba:\n   10:00 | 15:00 | 19:00\n\n📌 Yangi guruhlar har oyning 1 va 15-sanasida boshlanadi.",
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "register": {
+        "type": "form",
+        "text": "📝 <b>Kursga ro'yxatdan o'tish</b>\n\nQuyidagilarni to'ldiring:",
+        "questions": ["To'liq ismingiz:", "Yoshingiz:", "Telefon raqamingiz (+998...):", "Qaysi kursni tanlaysiz?", "Qulay vaqt (ertalab/kunduzi/kechqurun):", "Dasturlash tajribangiz bormi?"],
+        "on_finish": "✅ <b>Tabriklaymiz!</b>\n\nArizangiz qabul qilindi. Menejer 24 soat ichida qo'ng'iroq qiladi.\n\n📞 Tezkor aloqa: +998 99 888 77 66",
+        "redirect": "start"
+      },
+      "📞 aloqa": {
+        "type": "menu",
+        "text": "📞 <b>Bog'lanish</b>\n\n📱 +998 99 888 77 66\n📍 Toshkent, Chilonzor tumani\n💬 Telegram: @academysupport\n⏰ 09:00 — 20:00 (Dush-Shan)",
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "⬅️ orqaga": {"redirect": "start"}
+    }
+  },
+  "tibbiyot": {
+    "name": "🏥 Tibbiyot Markazi",
+    "description": "Xizmatlar, shifokorlar, qabulga yozilish",
+    "preview_count": 15,
+    "config": {
+      "start": {
+        "type": "menu",
+        "text": "🏥 <b>MedLife Tibbiyot Markaziga xush kelibsiz!</b>\n\nZamonaviy texnologiyalar, tajribali shifokorlar va g'amxo'r xizmat.\n\n🏆 10 yillik tajriba | 100,000+ bemor\n\n👇 Tanlang:",
+        "buttons": ["🩺 Xizmatlar", "👨‍⚕️ Shifokorlar", "💰 Narxlar", "📝 Qabulga yozilish", "📞 Aloqa"],
+        "inline_buttons": {"📍 Manzil": "location"}
+      },
+      "🩺 xizmatlar": {
+        "type": "menu",
+        "text": "🩺 <b>Xizmatlarimiz</b>\n\nYo'nalishni tanlang:",
+        "buttons": ["❤️ Kardiologiya", "🧠 Nevrologiya", "👶 Pediatriya", "🦷 Stomatologiya", "👁 Oftalmologiya", "⬅️ Orqaga"]
+      },
+      "❤️ kardiologiya": {
+        "type": "menu",
+        "text": "❤️ <b>Kardiologiya</b>\n\n• EKG — 50,000 so'm\n• EXO-KG — 100,000 so'm\n• Holter monitoring — 150,000 so'm\n• Kardiolog konsultatsiyasi — 80,000 so'm\n\n👨‍⚕️ Dr. Karimov Rustam — 15 yil tajriba",
+        "inline_buttons": {"📝 Yozilish": "appointment"},
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "🧠 nevrologiya": {
+        "type": "menu",
+        "text": "🧠 <b>Nevrologiya</b>\n\n• Nevrolog ko'rigi — 70,000 so'm\n• EEG — 120,000 so'm\n• MRT yo'llanma — bepul\n\n👨‍⚕️ Dr. Azimova Nilufar — 12 yil tajriba",
+        "inline_buttons": {"📝 Yozilish": "appointment"},
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "👨‍⚕️ shifokorlar": {
+        "type": "menu",
+        "text": "👨‍⚕️ <b>Bizning shifokorlar</b>\n\n1. Dr. Karimov R. — Kardiolog (15 yil)\n2. Dr. Azimova N. — Nevrolog (12 yil)\n3. Dr. Toshmatov B. — Pediatr (10 yil)\n4. Dr. Sultanova M. — Stomatolog (8 yil)\n5. Dr. Rahimov S. — Oftalmolog (14 yil)\n\n🏆 Barcha shifokorlar oliy toifali",
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "💰 narxlar": {
+        "type": "menu",
+        "text": "💰 <b>Narxlar</b>\n\n🩺 Konsultatsiya: 50,000 - 100,000 so'm\n🔬 Tahlillar: 30,000 - 200,000 so'm\n📷 UZI: 80,000 - 150,000 so'm\n🦷 Stomatologiya: 100,000+ so'm\n\n🎁 Birinchi tashrif: <b>-20% chegirma</b>",
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "appointment": {
+        "type": "form",
+        "text": "📝 <b>Qabulga yozilish</b>",
+        "questions": ["To'liq ismingiz:", "Yoshingiz:", "Telefon raqamingiz:", "Qaysi yo'nalish (Kardiolog/Nevrolog/...):", "Qulay sana va vaqt:", "Shikoyatingiz (qisqacha):"],
+        "on_finish": "✅ <b>Siz qabulga yozildingiz!</b>\n\nRegistratura sizga qo'ng'iroq qilib vaqtni tasdiqlaydi.\n\n📞 Tezkor: +998 71 200 00 00",
+        "redirect": "start"
+      },
+      "📝 qabulga yozilish": {
+        "redirect": "appointment"
+      },
+      "📞 aloqa": {
+        "type": "menu",
+        "text": "📞 <b>Aloqa</b>\n\n📱 +998 71 200 00 00\n🚑 Tez yordam: +998 71 200 00 01\n📍 Toshkent, Mirzo Ulug'bek tumani\n⏰ Kundalik: 08:00 — 20:00",
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "location": {
+        "type": "menu",
+        "text": "📍 <b>Manzil</b>\n\n🏥 Toshkent, Mirzo Ulug'bek tumani, Buyuk Ipak Yo'li ko'chasi, 105\n🚇 Metro: Buyuk Ipak Yo'li (5 daqiqa piyoda)\n🅿️ Bepul parkovka",
+        "inline_buttons": {"🗺 Xaritada": "https://maps.google.com", "⬅️ Orqaga": "start"}
+      },
+      "⬅️ orqaga": {"redirect": "start"}
+    }
+  },
+  "gozallik": {
+    "name": "💈 Go'zallik Saloni",
+    "description": "Xizmatlar, masterlar, onlayn yozilish",
+    "preview_count": 14,
+    "config": {
+      "start": {
+        "type": "menu",
+        "text": "💈 <b>Glamour Beauty Studioga xush kelibsiz!</b>\n\nGo'zallik — bu san'at, biz esa uning ustalari.\n\n💅 Premium xizmatlar | 🏆 5 yillik tajriba\n\n👇 Tanlang:",
+        "buttons": ["💇 Xizmatlar", "💰 Narxlar", "👩‍🎨 Masterlar", "📝 Yozilish", "📞 Aloqa"],
+        "inline_buttons": {"📸 Ishlarimiz": "https://instagram.com/glamour"}
+      },
+      "💇 xizmatlar": {
+        "type": "menu",
+        "text": "💇 <b>Xizmatlar</b>\n\nKategoriyani tanlang:",
+        "buttons": ["💇‍♀️ Soch turmagi", "💅 Manikur/Pedikur", "💆 SPA/Massaj", "💄 Makiyaj", "⬅️ Orqaga"]
+      },
+      "💇‍♀️ soch turmagi": {
+        "type": "menu",
+        "text": "💇‍♀️ <b>Soch turmagi</b>\n\n✂️ Soch olish — 50,000 so'm\n🎨 Bo'yash — 150,000+ so'm\n💆 Davolash — 100,000 so'm\n📐 Ukladka — 80,000 so'm\n💈 Keratin — 300,000+ so'm",
+        "inline_buttons": {"📝 Yozilish": "📝 yozilish"},
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "💅 manikur/pedikur": {
+        "type": "menu",
+        "text": "💅 <b>Manikur va Pedikur</b>\n\n💅 Klassik manikur — 50,000 so'm\n💅 Gel lak — 80,000 so'm\n💅 Dizayn bilan — 100,000 so'm\n🦶 Pedikur — 70,000 so'm\n🦶 Pedikur + Gel — 100,000 so'm",
+        "inline_buttons": {"📝 Yozilish": "📝 yozilish"},
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "📝 yozilish": {
+        "type": "form",
+        "text": "📝 <b>Onlayn yozilish</b>",
+        "questions": ["Ismingiz:", "Telefon raqamingiz:", "Qaysi xizmat kerak?", "Qulay sana:", "Qulay vaqt (ertalab/kunduzi/kechqurun):"],
+        "on_finish": "✅ <b>Yozildingiz!</b>\n\nMaster sizni kutadi. Eslatma: yozilishdan 2 soat oldin bekor qilish mumkin.\n\n📞 +998 90 555 66 77",
+        "redirect": "start"
+      },
+      "💰 narxlar": {
+        "type": "menu",
+        "text": "💰 <b>Narxlar</b>\n\n💇 Soch: 50,000 - 300,000\n💅 Manikur: 50,000 - 100,000\n💆 SPA: 150,000 - 500,000\n💄 Makiyaj: 100,000 - 250,000\n\n🎁 Doimiy mijozlarga -15%",
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "📞 aloqa": {
+        "type": "menu",
+        "text": "📞 <b>Aloqa</b>\n\n📱 +998 90 555 66 77\n📍 Toshkent, Yunusobod tumani\n⏰ 09:00 — 21:00 (har kuni)\n📸 Instagram: @glamourbeauty",
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "⬅️ orqaga": {"redirect": "start"}
+    }
+  },
+  "hr": {
+    "name": "📝 HR / Ariza Bot",
+    "description": "Vakansiyalar, ariza yuborish, kasbiy bot",
+    "preview_count": 12,
+    "config": {
+      "start": {
+        "type": "menu",
+        "text": "👔 <b>HR Assistant Botga xush kelibsiz!</b>\n\nBiz bilan ish topish oson. Ochiq vakansiyalarni ko'ring va ariza yuboring.\n\n👇 Tanlang:",
+        "buttons": ["📋 Vakansiyalar", "📝 Ariza yuborish", "ℹ️ Kompaniya haqida", "📞 Aloqa"]
+      },
+      "📋 vakansiyalar": {
+        "type": "menu",
+        "text": "📋 <b>Ochiq vakansiyalar</b>\n\n1. 💻 <b>Python Developer</b>\n   💰 $800-1500 | Full-time\n\n2. 🎨 <b>UI/UX Designer</b>\n   💰 $600-1000 | Full-time\n\n3. 📊 <b>Marketing Manager</b>\n   💰 $500-900 | Full-time\n\n4. 📞 <b>Operator</b>\n   💰 3,000,000 so'm | Smenali",
+        "inline_buttons": {"📝 Ariza yuborish": "apply"},
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "apply": {
+        "type": "form",
+        "text": "📝 <b>Ariza yuborish</b>\n\nResume ma'lumotlaringizni kiriting:",
+        "questions": ["To'liq ismingiz:", "Yoshingiz:", "Telefon raqamingiz:", "Email manzilingiz:", "Qaysi vakansiyaga murojaat qilyapsiz?", "Tajribangiz (yillar va qayerda):", "Kutilayotgan maosh:"],
+        "on_finish": "✅ <b>Arizangiz qabul qilindi!</b>\n\nHR bo'limi 3 ish kunida javob beradi.\nOmad tilaymiz! 🍀",
+        "redirect": "start"
+      },
+      "📝 ariza yuborish": {"redirect": "apply"},
+      "ℹ️ kompaniya haqida": {
+        "type": "menu",
+        "text": "🏢 <b>Kompaniya haqida</b>\n\n🏆 2012-yildan beri\n👥 200+ xodim\n🌍 3 ta filial\n⭐ Top-10 IT kompaniya (2024)\n\nBiz innovatsion texnologiyalar sohasida yetakchi kompaniyamiz.",
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "📞 aloqa": {
+        "type": "menu",
+        "text": "📞 <b>HR bo'limi</b>\n\n📱 +998 95 111 22 33\n📧 hr@company.uz\n💬 @hr_manager\n⏰ Dush-Jum: 09:00 — 18:00",
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "⬅️ orqaga": {"redirect": "start"}
+    }
+  },
+  "xizmatlar": {
+    "name": "🏢 Kompaniya Bot",
+    "description": "Xizmatlar, portfolio, aloqa — biznes profil",
+    "preview_count": 13,
+    "config": {
+      "start": {
+        "type": "menu",
+        "text": "🏢 <b>Kompaniyamizga xush kelibsiz!</b>\n\nBiz professional xizmatlar ko'rsatamiz va sizning biznesingizni rivojlantirishga yordam beramiz.\n\n👇 Tanlang:",
+        "buttons": ["🔧 Xizmatlar", "💼 Portfolio", "💰 Narxlar", "📝 So'rov yuborish", "📞 Aloqa"],
+        "inline_buttons": {"🌐 Saytimiz": "https://company.uz"}
+      },
+      "🔧 xizmatlar": {
+        "type": "menu",
+        "text": "🔧 <b>Xizmatlarimiz</b>\n\n1. 💻 Sayt ishlab chiqish\n2. 📱 Mobil ilova yaratish\n3. 🤖 Telegram bot yaratish\n4. 📊 SMM xizmatlari\n5. 🎨 Brending va dizayn\n\nBatafsil ma'lumot uchun tanlang:",
+        "buttons": ["💻 Sayt yaratish", "📱 Mobil ilova", "🤖 Bot yaratish", "⬅️ Orqaga"]
+      },
+      "📝 so'rov yuborish": {
+        "type": "form",
+        "text": "📝 <b>Loyiha so'rovi</b>",
+        "questions": ["Kompaniya/Ism:", "Telefon raqamingiz:", "Qanday xizmat kerak?", "Taxminiy budjet:", "Loyiha haqida batafsil:"],
+        "on_finish": "✅ <b>So'rov qabul qilindi!</b>\n\nMenejer 24 soat ichida bog'lanadi.",
+        "redirect": "start"
+      },
+      "📞 aloqa": {
+        "type": "menu",
+        "text": "📞 <b>Aloqa</b>\n\n📱 +998 99 777 88 99\n📧 hello@company.uz\n📍 Toshkent, Minor tumani\n⏰ Dush-Jum: 09:00 — 18:00",
+        "buttons": ["⬅️ Orqaga"]
+      },
+      "⬅️ orqaga": {"redirect": "start"}
+    }
+  }
+}

@@ -12,9 +12,11 @@ share/
 pyvenv.cfg
 __pycache__/
 *.json
+!package.json
+!render.yaml
+!templates.json
 platform_users.json
 ai_bots_db.json
-templates.json
 child_users_*.json
 *.sqlite
 *.db
