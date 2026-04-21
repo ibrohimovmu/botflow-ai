@@ -9,13 +9,15 @@
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap');
 
         :root {
-            --bg: #030712;
-            --card: rgba(17, 24, 39, 0.7);
+            --bg: #05060f;
+            --card: rgba(13, 15, 26, 0.8);
             --accent: #8b5cf6;
-            --accent-glow: rgba(139, 92, 246, 0.3);
+            --accent-glow: rgba(139, 92, 246, 0.4);
             --text: #f9fafb;
             --muted: #9ca3af;
             --success: #10b981;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
         }
 
         body {
@@ -231,7 +233,20 @@
         const tg = window.Telegram?.WebApp;
         if (tg) { tg.expand(); tg.ready(); }
 
-        let currentData = { template: '', token: '', botUsername: '' };
+        let currentData = { template: '', token: '', botUsername: '', customPrompt: '' };
+
+        window.onload = () => {
+            const params = new URLSearchParams(window.location.search);
+            const prompt = params.get('prompt');
+            if (prompt) {
+                currentData.customPrompt = prompt;
+                tg?.showConfirm(`AI ushbu so'rov asosida botni qurishga tayyor: "${prompt}". Davom etamizmi?`, (ok) => {
+                    if (ok) {
+                        selectTemplate('custom', '✨ AI Custom Build');
+                    }
+                });
+            }
+        };
 
         function goToStep(s) {
             document.querySelectorAll('.step').forEach(el => el.classList.remove('active'));

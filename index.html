@@ -3,78 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeCanvas AI | O'z loyihangni yarat</title>
+    <title>Aura AI — Professional Bot Builder Platform</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./src/style.css">
+    <style>
+        :root {
+            --bg: #05060f;
+            --card: #0d0f1a;
+            --accent: #8b5cf6;
+            --accent-glow: rgba(139, 92, 246, 0.4);
+            --emerald: #10b981;
+            --text: #f3f4f6;
+            --muted: #9ca3af;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Animated Background */
+        .bg-mesh {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 10% 10%, #1e1b4b 0%, transparent 40%),
+                radial-gradient(circle at 90% 90%, #312e81 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, #05060f 0%, transparent 80%);
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* Navbar */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 30px 0;
+            backdrop-filter: blur(10px);
+        }
+        .logo { font-size: 26px; font-weight: 800; letter-spacing: -1px; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links li a { color: var(--muted); text-decoration: none; transition: 0.3s; font-size: 15px; }
+        .nav-links li a:hover { color: var(--text); }
+        .btn-start {
+            background: var(--accent);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 10px 20px var(--accent-glow);
+            transition: 0.3s;
+        }
+        .btn-start:hover { transform: translateY(-3px); box-shadow: 0 15px 30px var(--accent-glow); }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 72px; font-weight: 800; line-height: 1; margin: 0 0 24px 0;
+            background: linear-gradient(to right, #fff, #9ca3af);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .hero p { font-size: 20px; color: var(--muted); max-width: 600px; margin: 0 auto 40px; line-height: 1.6; }
+
+        /* AI Prompt Box */
+        .prompt-container {
+            max-width: 800px; margin: 0 auto 80px;
+            position: relative;
+        }
+        .prompt-box {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 10px;
+            display: flex; gap: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        .prompt-box input {
+            flex: 1; background: transparent; border: none;
+            color: white; padding: 20px; font-size: 18px;
+            font-family: 'Outfit', sans-serif;
+        }
+        .prompt-box input:focus { outline: none; }
+        .prompt-box button {
+            background: var(--accent); color: white; border: none;
+            padding: 0 32px; border-radius: 16px; font-weight: 600;
+            cursor: pointer; transition: 0.3s;
+        }
+        .prompt-box button:hover { opacity: 0.9; }
+
+        /* Feature Cards */
+        .features {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+            margin-bottom: 100px;
+        }
+        .f-card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 40px;
+            border-radius: 32px;
+            transition: 0.3s;
+        }
+        .f-card:hover { background: rgba(255,255,255,0.05); transform: translateY(-10px); }
+        .f-card .icon { font-size: 32px; margin-bottom: 20px; }
+        .f-card h3 { font-size: 22px; margin: 0 0 12px 0; }
+        .f-card p { color: var(--muted); line-height: 1.6; margin: 0; }
+
+        /* Builder Preview */
+        .preview-window {
+            background: #000;
+            border: 1px solid var(--border);
+            border-radius: 32px;
+            overflow: hidden;
+            display: grid; grid-template-columns: 300px 1fr;
+            height: 600px;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+        }
+        .sidebar { background: #080910; border-right: 1px solid var(--border); padding: 24px; }
+        .main-view { background: #0c0d16; padding: 40px; position: relative; }
+        
+        .node-list { list-style: none; padding: 0; margin: 0; }
+        .node-item {
+            padding: 12px 16px; border-radius: 10px; margin-bottom: 8px;
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
+            font-size: 14px; color: var(--muted); cursor: pointer;
+        }
+        .node-item.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+        .bot-preview-card {
+            max-width: 400px; margin: 0 auto;
+            background: #1a1b26; border-radius: 20px;
+            padding: 24px; border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+        }
+        .bot-bubble {
+            background: #24283b; padding: 12px 16px; border-radius: 14px 14px 14px 0;
+            margin-bottom: 12px; font-size: 14px; line-height: 1.5;
+        }
+        .bot-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .bot-btn {
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            padding: 10px; border-radius: 10px; text-align: center; font-size: 13px;
+        }
+
+        /* Footer */
+        footer { padding: 80px 0; border-top: 1px solid var(--border); text-align: center; color: var(--muted); font-size: 14px; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero h1 { font-size: 48px; }
+            .features { grid-template-columns: 1fr; }
+            .preview-window { grid-template-columns: 1fr; height: auto; }
+            .sidebar { display: none; }
+        }
+    </style>
 </head>
 <body>
-    <div id="app">
-        <!-- Header -->
-        <header class="main-header">
-            <div class="logo">CODE<span>CANVAS</span></div>
-            <div class="lesson-info">DARSLIK 01: <b>O'Z ID KARTANGNI YARAT</b></div>
-            <div class="user-stars">⭐ 0 XP</div>
-        </header>
+    <div class="bg-mesh"></div>
 
-        <main class="builder-container">
-            <!-- Left: Instructional AI Buddy -->
-            <aside class="ai-buddy-panel">
-                <div class="buddy-header">
-                    <div class="buddy-avatar">✨</div>
-                    <h3>AI HAMROH</h3>
-                </div>
-                <div class="buddy-chat" id="buddy-messages">
-                    <div class="msg">
-                        Salom! 👋 Bugun biz birga sening birinchi <b>Raqamli ID Kartangni</b> quramiz. 
-                    </div>
-                    <div class="msg">
-                        Kod oynasidagi <code>"Ismingiz"</code> degan yozuvni top va uni o'z ismingga almashtir. Qani, ko'raylikchi!
-                    </div>
-                </div>
-                <div class="hint-card">
-                    <b>💡 MASLAHAT:</b> Kodni o'zgartirishing bilan o'ng tarafdagi karta yangilanadi!
-                </div>
-            </aside>
+    <div class="container">
+        <nav>
+            <div class="logo">AURA<span>STUDIO</span></div>
+            <ul class="nav-links">
+                <li><a href="#features">Xususiyatlar</a></li>
+                <li><a href="#pricing">Narxlar</a></li>
+                <li><a href="#showcase">Showcase</a></li>
+            </ul>
+            <a href="/webapp.html" class="btn-start">STUDIOGA KIRISH</a>
+        </nav>
 
-            <!-- Middle: Friendly Editor -->
-            <section class="editor-section">
-                <div class="editor-toolbar">
-                    <span class="file-tab">card_design.js</span>
-                    <button id="run-btn" class="glow-btn">YANGILASH</button>
-                </div>
-                <div class="code-wrapper">
-                    <textarea id="code-editor" spellcheck="false">
-// 1. Kartangiz ismini o'zgartiring
-let ism = "Ismingiz";
-
-// 2. Sevimli rangingiz (masalan: blue, red, gold)
-let rang = "royalblue";
-
-// 3. Statusingizni yozing
-let status = "Kelajak Dasturchisi";
-
-updateCard(ism, rang, status);
-                    </textarea>
-                </div>
-            </section>
-
-            <!-- Right: Real-time Result (The Magic Canvas) -->
-            <section class="preview-section">
-                <div class="preview-label">NATIJA (JONLI)</div>
-                <div id="canvas-preview" class="canvas-view">
-                    <!-- This is what the child creates -->
-                    <div id="id-card" class="id-card">
-                        <div class="card-photo">👤</div>
-                        <h2 id="view-name">Ismingiz</h2>
-                        <p id="view-status">Status</p>
-                        <div class="card-chip"></div>
-                    </div>
+        <section class="hero">
+            <h1>Telegram botlarni<br>AI orqali yarating</h1>
+            <p>Hech qanday kod yozmasdan, shunchaki o'z g'oyangizni ayting. Aura AI bir necha soniyada professional bot arxitekturasini qurib beradi.</p>
+            
+            <div class="prompt-container">
+                <div class="prompt-box">
+                    <input type="text" id="main-prompt" placeholder="Masalan: 'Premium kiyim do'koni boti, savat va Click to'lovi bilan...'">
+                    <button id="generate-btn">YARATISH</button>
                 </div>
             </div>
-        </main>
+        </section>
+
+        <section class="features" id="features">
+            <div class="f-card">
+                <div class="icon">⚡</div>
+                <h3>Ultra-Tezkor</h3>
+                <p>AI bir necha soniya ichida botning barcha mantiqiy tugunlari va matnlarini yaratib beradi.</p>
+            </div>
+            <div class="f-card">
+                <div class="icon">🛠</div>
+                <h3>Vizual Tahrir</h3>
+                <p>Botning har bir bo'limini vizual dashboard orqali osongina o'zgartiring.</p>
+            </div>
+            <div class="f-card">
+                <div class="icon">💎</div>
+                <h3>Full SaaS</h3>
+                <p>Hosting, ma'lumotlar bazasi va xavfsizlik — hammasi bizning zimmamizda.</p>
+            </div>
+        </section>
+
+        <section class="preview-window" id="showcase">
+            <aside class="sidebar">
+                <h4 style="margin: 0 0 20px 0; font-size: 13px; color: var(--accent);">LOJIHA STRUKTURASI</h4>
+                <div class="node-list">
+                    <div class="node-item active">🏠 Start Menyusi</div>
+                    <div class="node-item">🛒 Mahsulotlar</div>
+                    <div class="node-item">🛍 Savat</div>
+                    <div class="node-item">📞 Biz bilan bog'lanish</div>
+                    <div class="node-item">📍 Manzilimiz</div>
+                    <div class="node-item">📝 Ro'yxatdan o'tish</div>
+                </div>
+            </aside>
+            <main class="main-view">
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <span style="background: var(--accent); color: white; padding: 4px 12px; border-radius: 100px; font-size: 11px; font-weight: 700;">JONLI PREVIEW</span>
+                </div>
+                <div class="bot-preview-card">
+                    <div class="bot-bubble">
+                        👋 <b>Xush kelibsiz!</b><br><br>
+                        Bizning kiyim do'konimizda siz eng zamonaviy va sifatli liboslarni topishingiz mumkin.<br><br>
+                        👇 Quyidagilardan birini tanlang:
+                    </div>
+                    <div class="bot-btns">
+                        <div class="bot-btn">🔥 Yangi to'plam</div>
+                        <div class="bot-btn">👕 Erkaklar uchun</div>
+                        <div class="bot-btn">👗 Ayollar uchun</div>
+                        <div class="bot-btn">📦 Zakazlarim</div>
+                    </div>
+                </div>
+            </main>
+        </section>
+
+        <footer>
+            <div class="logo" style="margin-bottom: 20px;">AURA<span>STUDIO</span></div>
+            <p>© 2026 Aura AI Platform — Barcha huquqlar himoyalangan.</p>
+        </footer>
     </div>
-    <script type="module" src="/src/main.js"></script>
+
+    <script>
+        document.getElementById('generate-btn').onclick = function() {
+            const prompt = document.getElementById('main-prompt').value;
+            if(!prompt) return;
+            // Redirect to webapp with prompt
+            window.location.href = `/webapp.html?prompt=${encodeURIComponent(prompt)}`;
+        };
+    </script>
 </body>
 </html>
