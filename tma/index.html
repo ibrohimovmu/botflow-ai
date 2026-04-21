@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Aura Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Top Bar -->
+        <nav class="topbar">
+            <div class="logo">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                    <circle cx="14" cy="14" r="14" fill="url(#g1)"/>
+                    <path d="M9 14l3 3 7-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs><linearGradient id="g1" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#6C5CE7"/><stop offset="1" stop-color="#a29bfe"/></linearGradient></defs>
+                </svg>
+                <span>Aura Studio</span>
+            </div>
+            <div class="avatar" id="avatar">
+                <span id="avatar-letter">?</span>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="hero-badge">AI-Powered</div>
+            <h1>Bot yarating.<br><span class="gradient-text">Kodsiz.</span></h1>
+            <p class="hero-sub">Telegram botlarni sun'iy intellekt yordamida bir necha daqiqada professional darajada yarating.</p>
+            <button class="btn-primary" id="btn-create">
+                <span>Yangi loyiha boshlash</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m-4-4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+        </section>
+
+        <!-- Stats Row -->
+        <section class="stats-row">
+            <div class="stat-card">
+                <span class="stat-num" id="stat-bots">0</span>
+                <span class="stat-label">Loyihalar</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-num" id="stat-users">0</span>
+                <span class="stat-label">Foydalanuvchilar</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-num">∞</span>
+                <span class="stat-label">Imkoniyat</span>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+            <h2>Imkoniyatlar</h2>
+            <div class="feature-grid">
+                <div class="feature-card" style="--delay: 0s">
+                    <div class="feature-icon">🧠</div>
+                    <h3>AI Arxitektor</h3>
+                    <p>Sun'iy intellekt sizning g'oyangizni tushunadi va mukammal bot tuzilmasini yaratadi.</p>
+                </div>
+                <div class="feature-card" style="--delay: 0.1s">
+                    <div class="feature-icon">📝</div>
+                    <h3>Formalar</h3>
+                    <p>Ro'yxatdan o'tish, ariza va anketa — barchasi avtomatik.</p>
+                </div>
+                <div class="feature-card" style="--delay: 0.2s">
+                    <div class="feature-icon">✏️</div>
+                    <h3>Jonli tahrirlash</h3>
+                    <p>Botingizni istalgan payt AI yordamida o'zgartiring — restart kerak emas.</p>
+                </div>
+                <div class="feature-card" style="--delay: 0.3s">
+                    <div class="feature-icon">📊</div>
+                    <h3>Statistika</h3>
+                    <p>Foydalanuvchi soni, arizalar — barchasini real-time kuzating.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Create Modal -->
+        <div class="modal-overlay" id="modal">
+            <div class="modal-sheet">
+                <div class="modal-handle"></div>
+                <h2>Loyihangizni tasvirlang</h2>
+                <p class="modal-desc">AI sizning so'zlaringizdan professional bot tuzilmasini yaratadi.</p>
+                <textarea id="prompt" placeholder="Masalan: Restoran uchun buyurtma qabul qiladigan bot kerak. Menyudan ovqat tanlash, manzil kiritish va to'lov turi tanlash imkoniyatlari bo'lsin..."></textarea>
+                <button class="btn-primary btn-full" id="btn-send">
+                    <span id="btn-send-text">AI bilan yaratish</span>
+                    <div class="spinner hidden" id="spinner"></div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

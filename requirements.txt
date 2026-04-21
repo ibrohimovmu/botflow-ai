@@ -1,0 +1,14 @@
+aiogram>=3.0.0
+aiosqlite
+sqlalchemy[asyncio]
+asyncpg
+httpx
+pydantic-settings
+python-dotenv
+redis
+fastapi
+uvicorn
+Pillow
+aiodns
+PyJWT
+pypdf

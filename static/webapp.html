@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura AI Studio - Builder</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap');
+
+        :root {
+            --bg: #030712;
+            --card: rgba(17, 24, 39, 0.7);
+            --accent: #8b5cf6;
+            --accent-glow: rgba(139, 92, 246, 0.3);
+            --text: #f9fafb;
+            --muted: #9ca3af;
+            --success: #10b981;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 16px;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 0% 0%, #1e1b4b 0%, transparent 40%),
+                radial-gradient(circle at 100% 100%, #312e81 0%, transparent 40%);
+            min-height: 100vh;
+        }
+
+        .header { text-align: center; margin-bottom: 24px; padding-top: 10px; }
+        .header h1 { 
+            font-size: 32px; font-weight: 800; margin: 0; 
+            background: linear-gradient(135deg, #ddd, #8b5cf6); 
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+        }
+
+        .step { display: none; }
+        .step.active { display: block; animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 24px;
+            padding: 20px;
+            backdrop-filter: blur(12px);
+            margin-bottom: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        
+        .tpl-btn {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 16px;
+            border-radius: 20px;
+            text-align: center;
+            transition: 0.2s;
+        }
+        .tpl-btn:active { transform: scale(0.95); background: rgba(139, 92, 246, 0.2); border-color: var(--accent); }
+        .tpl-btn h3 { margin: 0 0 4px 0; font-size: 14px; }
+        .tpl-btn p { margin: 0; font-size: 10px; color: var(--muted); line-height: 1.2; }
+
+        .btn {
+            display: flex; align-items: center; justify-content: center;
+            background: var(--accent); color: white; border: none;
+            padding: 16px; border-radius: 16px; font-weight: 600;
+            cursor: pointer; width: 100%; font-size: 16px; transition: 0.2s;
+        }
+        .btn:active { transform: scale(0.98); opacity: 0.9; }
+        .btn.secondary { background: rgba(255,255,255,0.1); color: var(--text); }
+        .btn.success { background: var(--success); }
+
+        input {
+            width: 100%; box-sizing: border-box; background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1); padding: 16px;
+            border-radius: 14px; color: white; font-size: 15px; margin-bottom: 20px;
+            font-family: inherit;
+        }
+        input:focus { border-color: var(--accent); outline: none; }
+
+        .ai-pulse {
+            width: 80px; height: 80px; background: var(--accent);
+            border-radius: 50%; margin: 40px auto;
+            box-shadow: 0 0 30px var(--accent-glow);
+            animation: pulse 2s infinite ease-in-out;
+        }
+        @keyframes pulse { 
+            0% { transform: scale(1); box-shadow: 0 0 20px var(--accent-glow); }
+            50% { transform: scale(1.1); box-shadow: 0 0 50px var(--accent-glow); }
+            100% { transform: scale(1); box-shadow: 0 0 20px var(--accent-glow); }
+        }
+
+        .loader-text { text-align: center; color: var(--muted); font-size: 14px; }
+
+        .trial-badge {
+            background: rgba(16, 185, 129, 0.1); color: var(--success);
+            padding: 6px 12px; border-radius: 100px; font-size: 12px;
+            font-weight: 600; display: inline-block; margin-bottom: 12px;
+        }
+
+        #receipt-preview {
+            width: 100%; height: 200px; object-fit: cover; border-radius: 14px;
+            margin-bottom: 12px; display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header" style="display: flex; justify-content: space-between; align-items: center; padding: 0 10px;">
+        <h1>Aura Studio</h1>
+        <div onclick="goToStep('profile')" style="cursor: pointer; background: var(--card); padding: 8px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">👤</div>
+    </div>
+
+    <!-- Step 1: Template Selection -->
+    <div id="step-1" class="step active">
+        <div class="card">
+            <h2 style="margin: 0 0 8px 0; font-size: 18px;">Shablon tanlang</h2>
+            <p style="margin: 0 0 20px 0; color: var(--muted); font-size: 13px;">Barcha shablonlar AI tomonidan tahrirlanishi mumkin.</p>
+            <div class="grid">
+                <div class="tpl-btn" onclick="selectTemplate('shop', '🛒 Do\'kon Boti')">
+                    <h3>🛒 Do'kon</h3>
+                    <p>Click, Payme, Savat</p>
+                </div>
+                <div class="tpl-btn" onclick="selectTemplate('smm', '📢 SMM Boti')">
+                    <h3>📢 SMM</h3>
+                    <p>Kanal nazorati, Post</p>
+                </div>
+                <div class="tpl-btn" onclick="selectTemplate('game', '🎮 O\'yin Boti')">
+                    <h3>🎮 Game</h3>
+                    <p>Mini o'yinlar, Reyting</p>
+                </div>
+                <div class="tpl-btn" onclick="selectTemplate('ai', '🤖 AI Assistant')">
+                    <h3>🤖 AI</h3>
+                    <p>Groq & GPT bazali</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 0: Profile / Login System -->
+    <div id="step-profile" class="step">
+        <div class="card" style="text-align: center;">
+            <h2 style="margin: 0 0 16px 0; font-size: 18px;">Telegram Dashboard</h2>
+            <p id="user-info" style="font-size: 14px; color: var(--muted); margin-bottom: 20px;">Iltimos, tizimga kiring</p>
+            
+            <div id="tg-login-container" style="display: flex; justify-content: center;">
+                <script async src="https://oauth.telegram.org/js/telegram-login.js?3" 
+                        data-client-id="8704179220" 
+                        data-size="large" 
+                        data-onauth="onTelegramAuth(user)" 
+                        data-request-access="write"></script>
+            </div>
+            
+            <div id="profile-details" style="display: none;">
+                <img id="user-photo" style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 12px; border: 2px solid var(--accent); display: block;">
+                <h3 id="user-name" style="margin: 0;"></h3>
+                <p id="user-username" style="color: var(--muted); font-size: 13px;"></p>
+            </div>
+            
+            <button class="btn secondary" style="margin-top: 24px;" onclick="goToStep(1)">⬅️ Builderga qaytish</button>
+        </div>
+    </div>
+
+    <!-- Step 2: Token Input -->
+    <div id="step-2" class="step">
+        <div class="card">
+            <h2 style="margin: 0 0 16px 0; font-size: 18px;">Tokenni kiriting</h2>
+            <input type="text" id="token-input" placeholder="123456789:AAEq...">
+            <button class="btn" onclick="startAI()">🛠 Botni tayyorlash</button>
+            <button class="btn secondary" style="margin-top: 12px;" onclick="goToStep(1)">⬅️ Orqaga</button>
+        </div>
+    </div>
+
+    <!-- Step 3: AI Loading -->
+    <div id="step-3" class="step">
+        <div class="ai-pulse"></div>
+        <div class="loader-text" id="ai-status">Aura AI arxitektura qurmoqda...</div>
+        <div class="loader-text" style="font-size: 11px; margin-top: 12px;">Bu taxminan 4-6 soniya vaqt oladi</div>
+    </div>
+
+    <!-- Step 4: Trial Dashboard -->
+    <div id="step-4" class="step">
+        <div class="card">
+            <div class="trial-badge">⚡ Test rejimi faol (10 min)</div>
+            <h2 style="margin: 0 0 4px 0; font-size: 24px;" id="bot-name-display">@mybot</h2>
+            <p style="margin: 0 0 20px 0; color: var(--muted); font-size: 14px;">Botingiz hozir ishlamoqda. Uni tahrirlashingiz mumkin.</p>
+            
+            <button class="btn secondary" style="margin-bottom: 12px;" onclick="openAIEdit()">✏️ AI bilan tahrirlash</button>
+            <button class="btn success" onclick="openPayment()">💎 Doimiy hostingga o'tish</button>
+        </div>
+    </div>
+
+    <!-- Step 5: AI Edit Prompt -->
+    <div id="step-5" class="step">
+        <div class="card">
+            <h2 style="margin: 0 0 16px 0; font-size: 18px;">AI Tahrir</h2>
+            <textarea id="ai-prompt" style="width:100%; height: 100px; background: rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.1); border-radius:14px; color:white; padding:12px; font-family:inherit; margin-bottom:16px; outline:none;" placeholder="Masalan: 'Start tugmasini salomlashish qilib o'zgartir'"></textarea>
+            <button class="btn" onclick="sendEdit()">🚀 So'rovni yuborish</button>
+            <button class="btn secondary" style="margin-top: 12px;" onclick="goToStep(4)">⬅️ Orqaga</button>
+        </div>
+    </div>
+
+    <!-- Step 6: Payment Upload -->
+    <div id="step-6" class="step">
+        <div class="card">
+            <h2 style="margin: 0 0 8px 0; font-size: 18px;">To'lovni tasdiqlash</h2>
+            <p style="margin: 0 0 20px 0; color: var(--muted); font-size: 13px;">160,000 so'm. To'lovdan so'ng chekni yuklang.</p>
+            
+            <div style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: 12px; font-family: monospace; font-size: 13px; margin-bottom: 20px;">
+                4444 8888 1111 2222 (AURA)
+            </div>
+
+            <img id="receipt-preview">
+            <input type="file" id="receipt-input" accept="image/*" style="display:none" onchange="previewImage(event)">
+            <button class="btn secondary" style="margin-bottom: 12px;" onclick="document.getElementById('receipt-input').click()">📸 Chekni tanlash</button>
+            <button class="btn success" id="confirm-btn" style="display:none" onclick="confirmPayment()">🚀 Aktivlashtirish</button>
+            <button class="btn secondary" style="margin-top: 12px;" onclick="goToStep(4)">⬅️ Orqaga</button>
+        </div>
+    </div>
+
+    <script>
+        const tg = window.Telegram?.WebApp;
+        if (tg) { tg.expand(); tg.ready(); }
+
+        let currentData = { template: '', token: '', botUsername: '' };
+
+        function goToStep(s) {
+            document.querySelectorAll('.step').forEach(el => el.classList.remove('active'));
+            document.getElementById('step-' + s).classList.add('active');
+        }
+
+        function selectTemplate(id, name) {
+            currentData.template = id;
+            goToStep(2);
+        }
+
+        function startAI() {
+            const token = document.getElementById('token-input').value;
+            if (!token.includes(':')) { tg.showAlert("Iltimos, haqiqiy token kiriting!"); return; }
+            currentData.token = token;
+            goToStep(3);
+
+            const statuses = [
+                "Anti-Spam middleware o'rnatilmoqda...",
+                "Database ulanmoqda...",
+                "FSM routerlar optimallashdi...",
+                "Bot ishga tushirilmoqda..."
+            ];
+
+            let i = 0;
+            const timer = setInterval(() => {
+                if (i < statuses.length) {
+                    document.getElementById('ai-status').innerText = statuses[i++];
+                } else {
+                    clearInterval(timer);
+                    // In real app, we would call backend here. For SPA, we send to bot.
+                    tg.sendData(JSON.stringify({
+                        action: 'deploy_trial',
+                        template: currentData.template,
+                        token: currentData.token
+                    }));
+                    // Wait for bot to handle and maybe send result back or just close.
+                    // For demo, we show success.
+                    document.getElementById('bot-name-display').innerText = "@bot_loading...";
+                    goToStep(4);
+                }
+            }, 1200);
+        }
+
+        function openAIEdit() { goToStep(5); }
+        function sendEdit() {
+            const p = document.getElementById('ai-prompt').value;
+            if (!p) return;
+            tg.sendData(JSON.stringify({ action: 'ai_edit', prompt: p }));
+            tg.close();
+        }
+
+        function openPayment() { goToStep(6); }
+        function previewImage(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (re) => {
+                    document.getElementById('receipt-preview').src = re.target.result;
+                    document.getElementById('receipt-preview').style.display = 'block';
+                    document.getElementById('confirm-btn').style.display = 'flex';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function confirmPayment() {
+            // Send receipt info to bot
+            tg.sendData(JSON.stringify({ action: 'payment_confirm' }));
+            tg.close();
+        }
+
+        function onTelegramAuth(user) {
+            console.log("Telegram Auth Success:", user);
+            document.getElementById('tg-login-container').style.display = 'none';
+            document.getElementById('profile-details').style.display = 'block';
+            document.getElementById('user-info').innerText = "Tizimga muvaffaqiyatli kirdingiz!";
+            
+            document.getElementById('user-name').innerText = user.first_name + (user.last_name ? " " + user.last_name : "");
+            document.getElementById('user-username').innerText = "@" + (user.username || "user");
+            if (user.photo_url) {
+                document.getElementById('user-photo').src = user.photo_url;
+            }
+            
+            // Link account on backend
+            fetch('/auth/telegram', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(user)
+            }).then(r => r.json()).then(d => {
+                console.log("Backend sync:", d);
+            });
+        }
+    </script>
+</body>
+</html>

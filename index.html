@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeCanvas AI | O'z loyihangni yarat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="logo">CODE<span>CANVAS</span></div>
+            <div class="lesson-info">DARSLIK 01: <b>O'Z ID KARTANGNI YARAT</b></div>
+            <div class="user-stars">⭐ 0 XP</div>
+        </header>
+
+        <main class="builder-container">
+            <!-- Left: Instructional AI Buddy -->
+            <aside class="ai-buddy-panel">
+                <div class="buddy-header">
+                    <div class="buddy-avatar">✨</div>
+                    <h3>AI HAMROH</h3>
+                </div>
+                <div class="buddy-chat" id="buddy-messages">
+                    <div class="msg">
+                        Salom! 👋 Bugun biz birga sening birinchi <b>Raqamli ID Kartangni</b> quramiz. 
+                    </div>
+                    <div class="msg">
+                        Kod oynasidagi <code>"Ismingiz"</code> degan yozuvni top va uni o'z ismingga almashtir. Qani, ko'raylikchi!
+                    </div>
+                </div>
+                <div class="hint-card">
+                    <b>💡 MASLAHAT:</b> Kodni o'zgartirishing bilan o'ng tarafdagi karta yangilanadi!
+                </div>
+            </aside>
+
+            <!-- Middle: Friendly Editor -->
+            <section class="editor-section">
+                <div class="editor-toolbar">
+                    <span class="file-tab">card_design.js</span>
+                    <button id="run-btn" class="glow-btn">YANGILASH</button>
+                </div>
+                <div class="code-wrapper">
+                    <textarea id="code-editor" spellcheck="false">
+// 1. Kartangiz ismini o'zgartiring
+let ism = "Ismingiz";
+
+// 2. Sevimli rangingiz (masalan: blue, red, gold)
+let rang = "royalblue";
+
+// 3. Statusingizni yozing
+let status = "Kelajak Dasturchisi";
+
+updateCard(ism, rang, status);
+                    </textarea>
+                </div>
+            </section>
+
+            <!-- Right: Real-time Result (The Magic Canvas) -->
+            <section class="preview-section">
+                <div class="preview-label">NATIJA (JONLI)</div>
+                <div id="canvas-preview" class="canvas-view">
+                    <!-- This is what the child creates -->
+                    <div id="id-card" class="id-card">
+                        <div class="card-photo">👤</div>
+                        <h2 id="view-name">Ismingiz</h2>
+                        <p id="view-status">Status</p>
+                        <div class="card-chip"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
